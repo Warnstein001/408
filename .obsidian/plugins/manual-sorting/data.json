@@ -1,0 +1,66 @@
+{
+  "customOrder": {
+    "/": {
+      "children": [
+        "附件",
+        "算法设计",
+        "CO",
+        "DS",
+        "OS",
+        "CN"
+      ],
+      "sortOrder": "custom"
+    },
+    "附件": {
+      "children": [
+        "附件/Pasted image 20260308210034.png",
+        "附件/Pasted image 20260308204839.png"
+      ],
+      "sortOrder": "custom"
+    },
+    "算法设计": {
+      "children": [
+        "算法设计/原题pdf"
+      ],
+      "sortOrder": "custom"
+    },
+    "算法设计/原题pdf": {
+      "children": [
+        "算法设计/原题pdf/五⼦棋赢了吗？.pdf"
+      ],
+      "sortOrder": "custom"
+    },
+    "CN": {
+      "children": [],
+      "sortOrder": "custom"
+    },
+    "CO": {
+      "children": [
+        "CO/Chapter1"
+      ],
+      "sortOrder": "custom"
+    },
+    "CO/Chapter1": {
+      "children": [
+        "CO/Chapter1/大纲.md",
+        "CO/Chapter1/Lecture 01：计算机系统的组成.md",
+        "CO/Chapter1/Lecture 02：计算机的发展.md",
+        "CO/Chapter1/Lecture 03：计算机系统的层次结构.md",
+        "CO/Chapter1/Lecture04：计算机硬件.md",
+        "CO/Chapter1/Lecture05：计算机软件.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "DS": {
+      "children": [],
+      "sortOrder": "custom"
+    },
+    "OS": {
+      "children": [],
+      "sortOrder": "custom"
+    }
+  },
+  "sortOrder": "custom",
+  "debugMode": false,
+  "newItemPlacement": "top"
+}
