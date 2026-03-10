@@ -13,6 +13,19 @@
     },
     "附件": {
       "children": [
+        "附件/Pasted image 20260310144735.png",
+        "附件/Pasted image 20260310142242.png",
+        "附件/Pasted image 20260310141101.png",
+        "附件/Pasted image 20260310110025.png",
+        "附件/Pasted image 20260310110011.png",
+        "附件/Pasted image 20260310091903.png",
+        "附件/Pasted image 20260310091630.png",
+        "附件/Pasted image 20260310085637.png",
+        "附件/Pasted image 20260310083141.png",
+        "附件/Pasted image 20260309123820.png",
+        "附件/Pasted image 20260309123900.png",
+        "附件/Pasted image 20260309132621.png",
+        "附件/Pasted image 20260309133450.png",
         "附件/Pasted image 20260308210034.png",
         "附件/Pasted image 20260308204839.png"
       ],
@@ -36,7 +49,8 @@
     },
     "CO": {
       "children": [
-        "CO/Chapter1"
+        "CO/Chapter1",
+        "CO/Chapter2"
       ],
       "sortOrder": "custom"
     },
@@ -46,8 +60,17 @@
         "CO/Chapter1/Lecture 01：计算机系统的组成.md",
         "CO/Chapter1/Lecture 02：计算机的发展.md",
         "CO/Chapter1/Lecture 03：计算机系统的层次结构.md",
-        "CO/Chapter1/Lecture04：计算机硬件.md",
-        "CO/Chapter1/Lecture05：计算机软件.md"
+        "CO/Chapter1/Lecture 04：计算机硬件.md",
+        "CO/Chapter1/Lecture 05：计算机软件.md",
+        "CO/Chapter1/Lecture 06：计算机的基本工作原理.md",
+        "CO/Chapter1/Lecture07 ：计算机性能指标.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "CO/Chapter2": {
+      "children": [
+        "CO/Chapter2/暂略，整理完存储器再学胡科大的第2，3章.md",
+        "CO/Chapter2/大纲.md"
       ],
       "sortOrder": "custom"
     },
