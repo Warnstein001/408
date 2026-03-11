@@ -12,6 +12,19 @@
       "injectColor": true,
       "noTitle": false,
       "copy": true
+    },
+    "exercise": {
+      "type": "exercise",
+      "color": "238, 192, 27",
+      "icon": {
+        "name": "american-sign-language-interpreting",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Exercise",
+      "injectColor": true,
+      "noTitle": false,
+      "copy": true
     }
   },
   "syntaxHighlight": false,
