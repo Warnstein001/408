@@ -25,6 +25,19 @@
       "injectColor": true,
       "noTitle": false,
       "copy": true
+    },
+    "answer": {
+      "type": "answer",
+      "color": "0, 0, 0",
+      "icon": {
+        "name": "angle-down",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Answer",
+      "injectColor": true,
+      "noTitle": false,
+      "copy": true
     }
   },
   "syntaxHighlight": false,

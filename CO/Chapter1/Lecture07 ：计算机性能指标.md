@@ -1,3 +1,6 @@
+```ad-important
+衡量计算机系统性能是一项比较复杂的任务，**很难仅凭==单一指标==及精准衡量**。下述一些衡量计算机性能的指标之间也不是完全独立的，改变其中一项指标可能会影响到其他指标。
+```
 # 什么是计算机性能指标
 - 计算机性能指标是用来衡量计算机系统在各种操作和任务中的**工作效率**、**执行速度**以及**处理能力**的标准。
 - 计算机系统的性能指标可以帮助**人们评估计算机系统**的整体表现，从而更好地了解系统**在不同方面的优势**。
@@ -159,5 +162,75 @@ CPI=\sum_{i=1}^{n}(CPI_i \times P_i)=1 \times 60\% + 2 \times 18\% + 4 \times 12
 $$
 ```
 ### CPU的执行时间
-### MIPS
-### MFLOPS
+CPU执行时间使之**真正用于用户程序的执行时间**，而不包括为执行用户程序而花费在操作系统、访问主存（内存）、访问辅存（外存）、访问外部设备上的时间
+$$\left\{
+\begin{aligned}
+CPU\text{执行时间} &= \text{程序执行所需时钟周期数量} \times \text{时钟周期} \\
+&= \text{程序执行所需时钟周期数量} \div \text{时钟频率} \\
+CPI &= \text{程序执行所需时钟周期数量} \div \text{程序所包含的指令数量}
+\end{aligned}
+\right.$$
+$$CPU\text{执行时间} = (CPI \times \text{程序所包含的指令数量}) \times \text{时钟周期}$$
+$$
+= (CPI \times \text{程序所包含的指令数量}) \div \text{时钟频率}
+$$
+````ad-exercise
+1. 机器M1与M2是基于相同指令集体系结构ISA设计的两台不同的计算机。M1的时钟周期为2ns，程序P在M1上运行时的CPI为3;M2的时钟周期为4ns，程序P在M2上运行时的CPI为2。对于程序P而言，M1与M2的运行速度关系是?
+```ad-answer
+$$
+\frac{M1的CPU执行时间}{M2的CPU执行时间} = \frac{(CPI_{M1} \times 程序P所包含的指令数量) \times M1的时钟周期}{(CPI_{M2} \times 程序P所包含的指令数量) \times M2的时钟周期}$$
+$$
+= \frac{(3 \times 程序P所包含的指令数量) \times 2}{(2 \times 程序P所包含的指令数量) \times 4} = 0.75
+$$
+```
+
+```ad-note
+同一个程序在不同计算机上运行，CPU执行时间少的计算机，其运行速度快。
+```
+2. 假设某计算机有A、B、C共3类指令，A类指令的CPI为1，B类指令的CPI为2，C类指令的CPI为3。现有两种不同的编译器将同一高级语言的语句编译成S1和S2两种不同类型的代码序列。S1包含A、B、C这3类指令的数量分别为2、1、2；s2包含A、B、c这3类指令的数量分别为4、1、1。S1与S2的运算速度关系是?
+```ad-answer
+$$\frac{S1的CPU执行时间}{S2的CPU执行时间} = \frac{(CPI_{S1} \times (2 + 1 + 2))}{(CPI_{S2} \times (4 + 1 + 1))} = \frac{5 CPI_{S1}}{6 CPI_{S2}}$$
+$$
+CPI = \sum_{i=1}^{n} (CPI_i \times P_i)$$
+$$CPI_{S1} = 1 \times \frac{2}{2 + 1 + 2} + 2 \times \frac{1}{2 + 1 + 2} + 3 \times \frac{2}{2 + 1 + 2} = 2$$
+$$
+CPI_{S2} = 1 \times \frac{4}{4 + 1 + 1} + 2 \times \frac{1}{4 + 1 + 1} + 3 \times \frac{1}{4 + 1 + 1} = 1.5$$
+```
+```ad-note
+同一个程序的不同代码序列在同一台计算机上运行，CPU执行时间少的代码序列，其运行速度快。
+```
+```ad-summary
+通过本例可以看出：**仅仅通过计算机编译后目标代码中包含的指令数量来评估计算机的性能是不准确的。**在本例中，尽管S2包含的指令数量（4 + 1 + 1 = 6）比S1中包含的指令数量（2 + 1 + 2 = 5）多，但由于S2中CPI小的指令（即CPI为1的A类指令）所占比例（4 / 6），比S1中CPI小的指令（即CPI为1的A类指令）所占比例（2 / 5），因此指令数量更多的S2实际上比指令数量较少的S1执行速度快。
+```
+````
+### IPC（Instruction Per Cycle）
+- IPC指**每个时钟==周期==能够执行的指令的数量**。
+- **IPC是CPI的倒数**，他与<u>CPU的架构、指令集、指令流水线技术</u>等密切相关。
+- 由于指令流水线技术以及多核技术的发展，目前**IPC的值已经可以大于1**。
+### MIPS（Million Instruction Per Cycle）
+$$ \begin{cases} \text{MIPS} = \left( \dfrac{\text{指令条数}}{\text{CPU时间}} \right) \div 10^6 \\[1em] \text{CPU时间} = \dfrac{\text{CPI} \times \text{指令条数}}{\text{时钟频率}} \end{cases} $$ $$\Rightarrow  \text{MIPS} = \left( \dfrac{\text{时钟频率}}{\text{CPI}} \right) \div 10^6 $$
+```ad-info
+**用MIPS对不同机器进行性能比较有时是不准确的**，主要原因如下：
+- 不同机器指令集不同，并且指令的功能也不同，在某种机器上的某一条指令的功能，可能在另一种机器上需要用多条指令来实现。
+- 不同机器CPI和时钟周期也不同，因而同一条指令在不同机器上所用的时间也不同。
+```
+````ad-exercise
+在某个计算机上运行某个程序，该程序包含A、B、C和D共4类指令，它们各自在该程序中所占比例依次为60%、18%、12%、10%,A类指令的CPI为1,B类指令的CPI为2,C类指令的CPI为4,D类指令的CPI为8,若CPU的主频为400MHz，则该机的MIPS是多少?
+```ad-answer
+$$ \begin{cases} \text{MIPS} = \left( \dfrac{\text{时钟频率}}{\text{CPI}} \right) \div 10^6 = \left( \dfrac{400 \times 10^6}{\text{CPI}} \right) \div 10^6 \\[6pt] \text{CPI} = \sum\limits_{i=1}^n (\text{CPI}_i \times P_i) = 1 \times 60\% + 2 \times 18\% + 4 \times 12\% + 8 \times 10\% = 2.24 \end{cases} $$ $\implies \quad \text{MIPS} \approx 178.6$
+```
+````
+### MFLOPS（Million Floating-Point Operations Per Second）
+- MFLOPS指**每秒执行多少百万次浮点运算**。$MFLOPS=（浮点运算次数 \div 测试程序的时间）\div 10^6$
+- 相较于MFLOPS，衡量每秒执行浮点运算的次数还有以下更大单位：
+	- GFLOPS(GigaFLOPS)的意思是每秒执行多少十亿次浮点运算。
+	- TFLOPS(TeraFLOPS)的意思是每秒执行多少万亿次浮点运算。
+	- PFLOPS(PetaFLOPS)的意思是每秒执行多少干万亿次浮点运算。
+	- EFLOPS(ExaFLOPS)的意思是每秒执行多少百亿亿次浮点运算。
+	- ZFLOPS(ZettaFLOPS)的意思是每秒执行多少十万亿亿次浮点运算。
+# 使用基准程序进行性能评估
+- 基准程序（Benchmark）是**一组特定的程序**，专门**用于评测计算机的性能**。
+	- 这些程序能够有效地模拟计算机在处理实际任务时的表现。
+	- 在不同计算机上运行同样的基准程序，通过比较各计算机运行基准程序的时间，从而评测他们的性能
+- 不同基准程序的评测重点不同，例如CPU性能、图形性能、存储性能、浮点数计算性能、并行计算性能等。
+	- 目前国际上流行的基准程序主要有SPEC、Linpack、Dhrystone、Whetstone、NPB等。

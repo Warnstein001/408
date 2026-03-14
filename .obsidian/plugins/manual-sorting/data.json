@@ -3,7 +3,6 @@
     "/": {
       "children": [
         "附件",
-        "算法设计",
         "CO",
         "DS",
         "OS",
@@ -13,6 +12,12 @@
     },
     "附件": {
       "children": [
+        "附件/Pasted image 20260312075014.png",
+        "附件/Pasted image 20260312082042.png",
+        "附件/Pasted image 20260312082045.png",
+        "附件/Pasted image 20260312082100.png",
+        "附件/Pasted image 20260312095527.png",
+        "附件/Pasted image 20260313084451.png",
         "附件/Pasted image 20260311140444.png",
         "附件/Pasted image 20260311140510.png",
         "附件/Pasted image 20260311153037.png",
@@ -89,18 +94,6 @@
         "附件/Pasted image 20260309133450.png",
         "附件/Pasted image 20260308210034.png",
         "附件/Pasted image 20260308204839.png"
-      ],
-      "sortOrder": "custom"
-    },
-    "算法设计": {
-      "children": [
-        "算法设计/原题pdf"
-      ],
-      "sortOrder": "custom"
-    },
-    "算法设计/原题pdf": {
-      "children": [
-        "算法设计/原题pdf/五⼦棋赢了吗？.pdf"
       ],
       "sortOrder": "custom"
     },
