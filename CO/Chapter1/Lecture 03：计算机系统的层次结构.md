@@ -1,3 +1,8 @@
+---
+难度: ⭐
+重要性: ⭐⭐⭐
+---
+
 ```ad-summary
 主要思想：<mark style="background:#ff4d4f">分层思想</mark>
 主要分为： [[Lecture04：计算机硬件|计算机硬件]]和[[Lecture05：计算机软件|计算机软件]]
